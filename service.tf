@@ -1,11 +1,5 @@
-terraform {
-  required_providers {
-    fastly = {
-      source  = "fastly/fastly"
-      version = "0.24.0"
-    }
-  }
-  variable "fastly_name" {
+
+variable "fastly_name" {
   type    = string
   default = "test.ceichhorn.com"
 }
@@ -20,6 +14,9 @@ variable "s3_secret_key_cust_log" {
   default = "default_secret"
 }
 
+provider "fastly" {
+	version = "~> 0.24.0"
+}
 
 resource "fastly_service_v1" "fastly" {
   name = "test.ceichhorn.com"
