@@ -13,13 +13,6 @@ variable "s3_secret_key_cust_log" {
 	default = "default_secret"
 }
   
-variable "SUMO_COLLECTOR" {
-	type = "string"
-}
-
-variable "SUMO_COLLECTOR_GOOGLEBOT" {
-  type = "string"
-}
   
 provider "fastly" {
 	version = "~> 0.24.0"
