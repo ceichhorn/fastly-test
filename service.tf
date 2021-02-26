@@ -32,7 +32,6 @@ resource "fastly_service_v1" "fastly" {
     address               = "${terraform.workspace == "origin-staging" ? "stage.ydr.com" : "ux-east.ydr.com"}"
     name                  = "ux-east.ydr.com"
     shield                = "bwi-va-us"
-    healthcheck           = "ux-east.ydr.com"
     port                  = 443
     use_ssl               = true
     ssl_check_cert        = true
