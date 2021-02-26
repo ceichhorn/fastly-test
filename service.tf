@@ -21,12 +21,12 @@ provider "fastly" {
 resource "fastly_service_v1" "fastly" {
   name = "test.ceichhorn.com"
 
-  ##### vabig.com config #####
+  ##### ceichhorn.com config #####
   domain {
-    name = "${terraform.workspace == "production" ? "vabig.com" : format("%s-%s", terraform.workspace, "vabig.com")}"
+    name = "${terraform.workspace == "production" ? "ceichhorn.com" : format("%s-%s", terraform.workspace, "ceichhorn.com")}"
   }
   domain {
-    name = "${terraform.workspace == "production" ? "www.vabig.com" : format("%s-%s", terraform.workspace, "www.vabig.com")}"
+    name = "${terraform.workspace == "production" ? "www.ceichhorn.com" : format("%s-%s", terraform.workspace, "www.ceichhorn.com")}"
   }
   backend {
     address               = "${terraform.workspace == "origin-staging" ? "stage.ydr.com" : "ux-east.ydr.com"}"
