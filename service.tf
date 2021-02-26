@@ -15,7 +15,7 @@ variable "s3_secret_key_cust_log" {
 }
 
 provider "fastly" {
-	version = "~> 0.24.0"
+  version = "~> 0.24.0"
 }
 
 resource "fastly_service_v1" "fastly" {
@@ -37,7 +37,6 @@ resource "fastly_service_v1" "fastly" {
     ssl_check_cert        = true
     ssl_sni_hostname      = "${terraform.workspace == "origin-staging" ? "stage.ydr.com" : "ux-east.ydr.com"}"
     ssl_cert_hostname     = "${terraform.workspace == "origin-staging" ? "stage.ydr.com" : "ux-east.ydr.com"}"
-    request_condition     = "no_default_host"
     auto_loadbalance      = false
     between_bytes_timeout = 30000
     first_byte_timeout    = 30000
